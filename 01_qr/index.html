@@ -1,80 +1,58 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./style/style.css" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fonts -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/style.css">
-	<!-- CSS -->
-	<title>СТРОЙКОНТРОЛЬ</title>
-</head>
+    <title>Frontend Mentor | QR code component</title>
 
-<body>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+  </head>
+  <body>
+    <div class="qr">
+      <div class="qr__container">
+        <div class="qr__img">
+          <img src="./images/image-qr-code.png" alt="qr-code" />
 
-	<header class="header">
-		<div class="container header__container">
-			<a href="/" class="header__logo"><img src="" alt="" class="header__logo-img"></a>
-		</div>
-	</header>
+          <div class="qr__info">
+            <h1 class="qr__title">
+              Improve your front-end skills by building projects
+            </h1>
 
-	<!-- START HEADER -->
-	
-	<!-- END HEADER -->
+            <p class="qr__text">
+              Scan the QR code to visit Frontend Mentor and take your coding
+              skills to the next level
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	<!-- START MAIN -->
-	<main class="main">
-		
-
-	</main>
-	<!-- END MAIN -->
-
-	<!-- START FOOTER -->
-	<!-- END FOOTER -->
-
-	<!-- START BURGER -->
-	<dialog class="mobile-overlay visible-mobile" id="mobileOverlay">
-		<form class="mobile-overlay__close-button-wrapper" method="dialog">
-			<button class="mobile-overlay__close-button cross-button" type="submit">
-				<span class="visually-hidden">Close navigation menu</span>
-			</button>
-		</form>
-		<div class="mobile-overlay__body">
-			<ul class="mobile-overlay__list dropdown__mobile" id="dropdown__mobile">
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link" href="services.html">Услуги</a>
-				</li>
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link" href="contact.html">Контакты</a>
-				</li>
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link" href="documents.html">Документы</a>
-				</li>
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link" href="about.html">О нас</a>
-				</li>
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link" href="korupzia.html">Противодействие коррупции</a>
-				</li>
-
-				<li class="mobile-overlay__item">
-					<a class="mobile-overlay__link open-modal" href="/">Связаться</a>
-				</li>
-			</ul>
-		</div>
-	</dialog>
-	<!-- END BURGER -->
-
-	<!-- START MODAL -->
-		<!-- END MODAL -->
-
-
-
-	<!-- JS -->
-	<script src="./script/main.js"></script>
-	<!-- JS -->
-
-</body>
-
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
 </html>
