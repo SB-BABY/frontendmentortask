@@ -1,0 +1,340 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+	 Убираем внутренние отступы слева тегам списков,
+	 у которых есть атрибут class
+	*/
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+	 Убираем внешние отступы body и двум другим тегам,
+	 у которых есть атрибут class
+	*/
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+	 Убираем внешние отступы вертикали нужным тегам,
+	 у которых есть атрибут class
+	*/
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+	 Убираем стандартный маркер маркированному списку,
+	 у которого есть атрибут class
+	*/
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+	 Обнуляем вертикальные внешние отступы параграфа,
+	 объявляем локальную переменную для внешнего отступа вниз,
+	 чтобы избежать взаимодействие с более сложным селектором
+	*/
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+	 Внешний отступ вниз для параграфа без атрибута class,
+	 который расположен не последним среди своих соседних элементов
+	*/
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+	 Упрощаем работу с изображениями
+	*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+	 Наследуем свойства шрифт для полей ввода
+	*/
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+  	Пригодится в большинстве ситуаций
+  	(когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+  /**
+  	Плавный скролл
+    */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+  	Пригодится в большинстве ситуаций
+  	(когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+  	Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+	 Приводим к единому цвету svg-элементы
+	*/
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+	 Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+	*/
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+	 Удаляем все анимации и переходы для людей,
+	 которые предпочитают их не использовать
+	*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --color-dark: hsl(0, 0%, 7%);
+  --color-light: hsl(0, 0%, 100%);
+  --color-accent: hsl(75, 94%, 57%);
+  --color-gray-700: hsl(0, 0%, 20%);
+  --color-gray-800: hsl(0, 0%, 12%);
+  --color-gray-900: hsl(0, 0%, 8%);
+  --border: 1px solid var(--color-dark);
+  --border-radius: 14px;
+  --border-radius-small: 7px;
+  --border-radius-large: 45px;
+  --shadow: 0 5px 0 0 var(--color-dark);
+  --container-width: 1240px;
+  --container-padding-x: 20px;
+  --section-padding-y: 70px;
+  --input-height: 59px;
+  --button-height: 68px;
+  --button-height-small: 40px;
+  --transition-duration: 0.2s;
+}
+@media (max-width: 1280px) {
+  :root {
+    --section-padding-y: 50px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --section-padding-y: 30px;
+  }
+}
+
+/* глобальные стили для элементов html и body
+ а атк же глобальные стили для элементов:
+ - button
+ - input
+ - a
+ и тд
+
+ */
+.none {
+  display: none;
+}
+
+* {
+  scrollbar-color: var(--color-accent) var(--color-gray);
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-gray);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark);
+  border-radius: 5px;
+  border: 3px solid var(--color-gray);
+}
+
+body {
+  font-size: clamp(14px, 1.1111111111vw, 16px);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-light);
+  background-color: var(--color-gray-900);
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  font-size: clamp(43px, 4.1666666667vw, 60px);
+}
+
+h2,
+.h2 {
+  font-size: clamp(36px, 2.7777777778vw, 40px);
+}
+
+h3,
+.h3 {
+  font-size: clamp(26px, 2.0833333333vw, 30px);
+}
+
+h4,
+.h4 {
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+.link {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.link__container {
+  width: 350px;
+  background: var(--color-gray-800);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+.link__img {
+  display: inline-block;
+  border-radius: 50%;
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.link__name {
+  font-size: clamp(16px, 1.6666666667vw, 24px);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.link__city {
+  color: var(--color-accent);
+  font-size: clamp(10px, 0.8333333333vw, 12px);
+  margin-bottom: 20px;
+}
+.link__sibtitle {
+  font-size: clamp(10px, 0.8333333333vw, 12px);
+  margin-bottom: 20px;
+}
+.link__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.link__item {
+  background: var(--color-gray-700);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: var(--border-radius-small);
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+.link__item:hover {
+  background: var(--color-accent);
+  color: var(--color-gray-800);
+}

@@ -1,0 +1,6 @@
+// размещаем   все импорты
+@import "./component/fonts", "./component/media", "./component/mixins", "./component/reset", "./component/vars", "./component/globals", "./component/utils";
+
+//Размещаем блок
+
+@import "./block/card";
