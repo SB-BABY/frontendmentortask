@@ -1,0 +1,42 @@
+// !записываем глобальные переменные проекта
+
+//так записываются переменные
+
+:root {
+	// переменная для цвета
+	--color-dark: hsl(0, 0%, 7%);
+	--color-light: hsl(0, 0%, 100%);
+	--color-stone-100: hsl(30, 54%, 90%);
+	--color-stone-150: hsl(30, 18%, 87%);
+	--color-stone-600: hsl(30, 10%, 34%);
+	--color-stone-900: hsl(24, 5%, 18%);
+	--color-brown-800: hsl(14, 45%, 36%);
+	--color-rose-800: hsl(332, 51%, 32%);
+	--color-rose-50: hsl(330, 100%, 98%);
+	// переменные для рамок
+	--border: 1px solid var(--color-dark);
+	--border-radius: 14px;
+	--border-radius-small: 7px;
+	--border-radius-large: 45px;
+	// переменные для цвета
+	--shadow: 0 5px 0 0 var(--color-dark);
+	// переменные для ширины класса контейнера и отступа по Х
+	--container-width: 1240px;
+	--container-padding-x: 20px;
+	// переменные для отступа по Y  для секций
+	--section-padding-y: 70px;
+	// высота для кнопок и полей ввода
+	--input-height: 59px;
+	--button-height: 68px;
+	--button-height-small: 40px;
+
+	--transition-duration: 0.2s;
+
+	@include desktop {
+		--section-padding-y: 50px;
+	}
+
+	@include mobile {
+		--section-padding-y: 30px;
+	}
+}
