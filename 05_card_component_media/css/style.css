@@ -1,21 +1,21 @@
 @charset "UTF-8";
 @font-face {
   font-family: "montserratMedium";
-  src: url("./../../fonts/montserrat-medium.woff2") format("woff2");
+  src: url("./../fonts/montserrat-medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "montserratBold";
-  src: url("./../../fonts/montserrat-bold.woff2") format("woff2");
+  src: url("./../fonts/montserrat-bold.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "frauncesBold";
-  src: url("./../../fonts/fraunces-bold.woff2") format("woff2");
+  src: url("./../fonts/fraunces-bold.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -329,7 +329,7 @@ h4,
   }
 }
 .card__img {
-  background-image: url("./../../assets/images/image-product-desktop.jpg");
+  background-image: url("./../assets/images/image-product-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -338,7 +338,7 @@ h4,
 }
 @media (max-width: 767px) {
   .card__img {
-    background-image: url("./../../assets/images/image-product-mobile.jpg");
+    background-image: url("./../assets/images/image-product-mobile.jpg");
     height: 200px;
     background-position: bottom;
   }
@@ -395,7 +395,7 @@ h4,
 .card__btn::before {
   content: "";
   display: inline-block;
-  background-image: url("./../../assets/images/icon-cart.svg");
+  background-image: url("./../assets/images/icon-cart.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 20px;
